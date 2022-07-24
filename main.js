@@ -122,3 +122,60 @@ arreglo2.includes("ruby")
 arreglo2.find(function(elemento,posicion,arreglo){
    return elemento==="ruby"
 })
+
+//Elemento: es el elemento que esta iterando
+//Posicion: en que posiucion va
+//Arreglo: arreglo completo
+
+//FINDINDEX
+//Encontrar el indice
+arreglo2.findIndex(function(elemento,posicion,arreglo){
+   return elemento==="ruby"
+})
+
+//------------------------------SPREAD AND REST-------------------//
+//Spread sintax. Separa los elementos de un array
+
+let arreglo3=[1,2,3]
+let nombres4="ignacio"
+
+console.log(...nombres4)
+
+//Rest parameters. Unen los elementos de un array
+
+function promedio(nombre,...calificaciones){
+   console.log(nombres4, calificaciones)
+}
+promedio("ignacio", 1,2,3,4,5)
+
+//------------------------------OBJETOS-------------------//
+//DECLARAR UN OBJETO JSON -> JavaScript object notation
+
+let curso={
+   titulo:"Curso Js",
+   Formato:"Video",
+   Duracion:"10 horas",
+   Bloques:["introduccion","Funciones"],
+   Inscribir: function(){
+      console.log("Listo")
+   },
+}
+
+//Acceder a un elemento
+console.log(curso.titulo) //----> "Curso JS"
+console.log(curso["titulo"]) //----> "Curso JS"
+console.log(curso.Inscribir()) //----> "Curso JS"
+
+//Agregar datos a un objeto
+curso.titulo="Curso de ruby"
+curso["titulo"]="Curso de ruby"
+
+//------------------------------SHORTHAND SYNTAX-------------------//
+
+let nombre="ignacio"
+let usuario={nombre}
+
+console.log(usuario.nombre) //---> nombre:"ignacio"
+
+
+//------------------------------COMBINAR O DUPLICAR OBJETOS-------------------//
