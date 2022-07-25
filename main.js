@@ -179,3 +179,34 @@ console.log(usuario.nombre) //---> nombre:"ignacio"
 
 
 //------------------------------COMBINAR O DUPLICAR OBJETOS-------------------//
+
+//Duplicar objetos n
+ 
+let user={
+   Edad:"20",
+   nombre:"Ignacio"
+}
+
+let copiaAdmin={...user,Permisos:true}//----> copia el objeto y le agrega el elemento "Permisos"
+
+//Combinar objetos
+let user={
+   Edad:"20",
+   nombre:"Ignacio"
+}
+
+let esquemaPermisos={nivel:2}
+
+let admin={...user,...esquemaPermisos}//----->devuelve un objeto con los elementos de los combinados
+
+
+//------------------------------DESTRUCTURING ASSIGNMENT-------------------//
+
+let user={
+   Edad:"20",
+   nombre:"Ignacio"
+}
+
+let {nombre}=user  // del lado izquierdo va la variable a extraer y del lado derecho el objeto del que la sacamos
+let {nombre:username}=user //creo una variable username con el valor de nombre
+
