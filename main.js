@@ -210,3 +210,22 @@ let user={
 let {nombre}=user  // del lado izquierdo va la variable a extraer y del lado derecho el objeto del que la sacamos
 let {nombre:username}=user //creo una variable username con el valor de nombre
 
+//Spread operator en object destructuring
+let {nombre,...sobrantes}=user//----> me va a devolver un objeto con los sobrantes menos name
+
+//Destructuring en array
+
+let calificaciones=[10,9,9.5,8,8.5,7]
+let[matematicas,lengua,...otras]=calificaciones //-----> me devolveria [9.5,8,8.5,7]. 
+
+//----------------------------FUNCIONES CONSTRUCTORAS-------------------//
+//Son funciones que nos permiten crear nuevos objetos
+function Course(){
+   this.tittle="Curso JS" //This nos permite modificar el objeto, es la forma en la que podemos accederlo
+}
+
+let objeto=new Course()
+
+let js=new Course()//Creo una copia del objeto en js
+
+//HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
