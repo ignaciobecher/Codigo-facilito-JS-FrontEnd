@@ -228,4 +228,35 @@ let objeto=new Course()
 
 let js=new Course()//Creo una copia del objeto en js
 
+//----------------------------ARROW FUNCTIONS-------------------//
+let demo=() => console.log("Hola") //cuando es de una sola linea podemos omitir las llaves
+
+let hola(a,b) =>{
+   return (a+b)
+}
+
+//----------------------------ARROW FUNCTIONS Y CONTEXTO-------------------//
+//Heredan el valor de this del contexto en el que fueron creadas, no se reasigna
+function Estudiante(){
+   this.nombre="Ignacio"
+   this.saludar= () =>console.log("Hola"+this.nombre)  //la arrow function nos evita problemas con el this, el this en una arrow adopta el contexto en la creacion y no lo modifica en la ejecucion
+}     //al usar una funcion comun el this toma el contexto en la ejecucion y no en la creacion
+
+let e =new Estudiante()
+
+//----------------------------BIND, CALL Y APPLY-------------------//
+function Estudiante(){
+   this.nombre="Ignacio"
+   this.saludar=function(){console.log(this)}
+   this.saludar=this.saludar.bind(this )
+}
+
+let e=new Estudiante  //----> si hago console.log me va a ejecutar el objeto estudiante entero
+ 
+//Metodos que ejecutan la funcion:
+//Inmediato: call y apply
+//Lazy: bind
+
+//CALL, APPLY Y BIND LO QUE ME PERMITEN ES DECIRLE EXPLICITAMENTE A JS QUIEN VA A SER EL THIS EN UNA FUNCION
+
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
