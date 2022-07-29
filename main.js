@@ -259,4 +259,101 @@ let e=new Estudiante  //----> si hago console.log me va a ejecutar el objeto est
 
 //CALL, APPLY Y BIND LO QUE ME PERMITEN ES DECIRLE EXPLICITAMENTE A JS QUIEN VA A SER EL THIS EN UNA FUNCION
 
+//----------------------------DEFINIR CLASES-------------------//
+//Es una alternativa para declarar objetos
+
+class Curso{
+   constructor(titulo){
+      this.titulo=titulo
+   }
+   Inscribir(){
+      console.log("Inscrito")
+   }
+}
+
+let JavaScript=new Course("Curso de JS")
+
+//----------------------------DEFINIR METODOS Y PROPIEDADES-------------------//
+
+class Curso{
+   tittle="Hola";
+   inscribir=(nombre) =>{           //podemos definir este metodo como arrow function o como funcion comun
+      this.nombre=nombre
+   }
+}
+
+let c=new Curso();
+
+//----------------------------ALCANCE DE PROPIEDADES-------------------//
+
+class Curso{
+   #title="JavaScript" //metodo privado, mientras que sea llamado dentro de la clase funciona, por fuera no
+   constructor(){
+      this.#bienvenida()
+   }
+   #bienvenida(){
+      console.log("bienvenido al curso"+this.#title)
+   }
+}
+
+let javascript=new curso()
+
+//----------------------------METODO CONSTRUCTOR-------------------//
+ 
+class Curso{
+   constructor(titulo,color="yellow"){
+      this.titulo=titulo
+      this.color=color
+      console.log(arguments)
+   }      //se ejecuta de manera automatica cuando instanciamos un nuevo objeto de una clase
+}
+
+new Curso("Curso profesional de JS") //aca se ejecutaria el constructor automaticamente
+
+//se ejecuta de manera automatica al crear una nueva ionstancia de la funcion
+
+//----------------------------HERENCIA DE CLASES-------------------//
+
+class Human{
+   especio="humano"
+}
+
+class Admin extends Human{}//admin hereda de human. Admin hereda todo lo que tenga human menos lo que sea privado
+
+let admin=new Admin
+
+//Si tengo un metodo igual al heredado pero quiero sumar otro metodo igual pero modificado, utilizamos el "super"
+
+class User{
+   saludar(){console.log("hola usuario")}
+}
+
+class Admin extends User{
+   saludar(){
+      super.saludar()
+      console.log("hola soy admin")
+   }
+}
+
+let admin=new Admin()
+
+admin.saludar() //----> "hola usuario" "hola soy admin"
+
+//----------------------------METODOS ACCESORES-------------------//
+
+class User{
+   get nombre(){return "ignacio"} //GET se usa para obtener o leer el valor de una propeidad, ene ste caso "nombre"
+   set nombre(nombre){console.log(nombre)}//SET se usa para asignar un valor nuevo a alguna propiedad
+}
+
+let user=new User()
+console.log(user.nombre)//no hace falta ponerle parentesis a nombre
+
+
+user.nombre="Becher"//es llamado cuando usamos el opereador de igualdad
+
+user.nombre;//ASI LLAMAMOS A UN GETTER
+user.nombre="abcdefg"//ASI LLAMAMOS A UN SETTER
+
+               
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
