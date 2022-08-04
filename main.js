@@ -355,5 +355,32 @@ user.nombre="Becher"//es llamado cuando usamos el opereador de igualdad
 user.nombre;//ASI LLAMAMOS A UN GETTER
 user.nombre="abcdefg"//ASI LLAMAMOS A UN SETTER
 
-               
+//----------------------------METODOS Y PROPIEDADES ESTATICAS-------------------//
+
+class Api{
+   static ENDPOINT="localhost:3000";
+   static get(){
+      console.log(this.ENDPOINT)
+   }
+}
+
+//el uso de static antes de un elemento me permite llamar al elemento de la clase sin tener que instanciar un nuevo objeeto
+
+Api.get() //----> imprime "localhost:3000"
+
+
+//---------------------------------------PROGRAMACION ORIENTADA A PROTOTIPOS-------------------------------------------//
+
+function Course(){}
+   Course.prototype.inscribir=function(){
+      console.log("hola")
+   }
+
+let course=new Course();
+course.abandonar=function(){console.log("abandonar")}
+
+//----------------------------CONCEPTOS DE PROTOTIPOS-------------------//
+
+
+
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
