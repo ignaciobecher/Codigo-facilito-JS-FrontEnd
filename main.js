@@ -410,4 +410,33 @@ let ruby= new Course()   //ambos imprimen ----> "ok"
 
 //----------------------------HERENCIA DE PROTOTIPOS-------------------//
 
+function Course(title){
+   this.title=title
+}
+
+Course.prototype.inscribir=function(){console.log("inscribir")}
+
+function LiveCourse(date){
+   this.published_at=date
+}
+
+LiveCourse.prototype=Object.create(Course.prototype)
+
+let JavaScript=new LiveCourse(new Date)
+
+//let JavaScript=new Course("Curso de JS")
+let ruby=Object.create(javascript)
+
+ruby.title="curso de ruby"  //----> si hago un console.log me va a imprimir "curso de ruby ya que en esta instancia estoy creando una nueva propiedad title, no esta modificando el prototype. anteriormente no copíe el prototype"
+
+/*
+En JS la herencia de prototipos funciona al incluir el prototype de una clase en la cadena de prototipos de un objeto.
+
+Un objeto puede heredar de otro si lo usamos como primer argumento de Object.create
+
+Una funcion constructora puede heredar de otra si usamos el prototype de la clase base como primer argumento de Object.create y asignamos ese resultado al prototype de la clase hija.
+*/
+
+
+
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
