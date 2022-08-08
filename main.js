@@ -420,7 +420,7 @@ function LiveCourse(date){
    this.published_at=date
 }
 
-LiveCourse.prototype=Object.create(Course.prototype)
+LiveCourse.prototype=Object.create(Course.prototype) //crea un nuevo {__proto__:Course.prototype}
 
 let JavaScript=new LiveCourse(new Date)
 
@@ -437,6 +437,79 @@ Un objeto puede heredar de otro si lo usamos como primer argumento de Object.cre
 Una funcion constructora puede heredar de otra si usamos el prototype de la clase base como primer argumento de Object.create y asignamos ese resultado al prototype de la clase hija.
 */
 
+
+//---------------------------------------PROGRAMACION ASINCRONA-------------------------------------------//
+
+//Que es la programacion asincrona
+
+/*
+En un lenguaje de programación asíncrono como JavaScript, las tareas pueden ejecutarse secuencialmente, esto significa que podemos indicar que algunas tareas se pasen a segundo plano y esperen a su turno para ser reanudadas y ejecutadas.
+
+Esta característica del lenguaje existe para mejorar el rendimiento del mismo, porque nos permite aprovechar al máximo las capacidades del equipo en el que se está ejecutando nuestro código.
+
+Por lo general las tareas que se esperan sean más tardadas, o que necesiten esperar respuesta de algún otro elemento del sistema, son candidatas a ser delegadas a este proceso de espera y ejecución.
+
+JavaScript es un lenguaje de ejecución sobre un solo hilo, esto significa que sólo puede ejecutar una tarea a la vez. Cuando una operación tarda demasiado o está esperando la respuesta de otra, decimos que bloquea las demás instrucciones, precisamente porque JavaScript no puede ejecutar dos a la vez.
+
+Para solucionar esto, JavaScript introduce el event loop, o ciclo de eventos. El event loop se compone de dos componentes principales, una cola de mensajes y un ciclo que se encuentra iterando esta cola de mensajes. La programación asíncrona en JavaScript funciona empujando ciertas operaciones a esta cola de actividades, para que no bloqueen la ejecución de código mientras terminan, el trabajo del event loop es estar preguntando las operaciones de la cola de actividades si ya han finalizado, y cuando lo hacen, reanuda la ejecución de dicha operación, la recupera por así decirlo.
+
+Para que todo esto funcione, necesitas una forma de delegar ciertas operaciones a esta cola, y una forma de saber cuándo estas operaciones han terminado, para hacerlo JavaScript introdujo inicialmente el concepto de callbacks, y después el de promesas, finalmente a la sintaxis se introdujeron las funciones asíncronas, todos estos conceptos están diseñados para que esta comunicación entre el event loop, la cola de actividades y tu código, suceda.
+*/
+
+//----------------------------CALLBACKS-------------------//
+//un callback es una funcion que se pasa como argumento a una operacion asincrona con objetivo de que se ejecute una vez terminada la operacion.
+
+//---------------------------- CALLBACKS-------------------//
+//hecho con npm install request
+let request=require("request"); //con esto importo con node
+
+
+request("https://www.google.com", function(){ //ejecuta el request y despues que termina ejecuta la function
+    console.log("termine la peticion")
+})
+
+console.log("Yo socedo despues") //lo imprime primero aunque este despues de la funcioin
+
+//Por mas que la funcion asincrona tarde, el lenguaje va a seguir ejecutando normalmente
+
+//----------------------------PROMESAS-------------------//
+//hecho con npm install request-promise
+
+let request=require("request-promise"); 
+
+
+let promesa=request("https://www.google.com")
+
+promesa.then(function(){console.log("Termine la peticion")})
+promesa.catch(function(err){console.log(err)}) //catch me permite saber si paso algo en la operacion asincrona
+
+console.log("Yo socedo despues") 
+
+
+//ESTADOS DE LAS PROMESAS
+/*
+Fullfilled:completada con exito
+Rejected:rechazada sin exito
+Pending:Pendiente no ha terminado
+Settled:Finalizada con exito o con error
+
+*/
+
+
+//----------------------------CALLBACKS DE LAS PROMESAS-------------------//
+//Metodos que se ejecutaran al finalizazr la promesa
+
+//THEN: completada con exito
+//CATCH: error
+//FINALLY: ejecuta codigo sin importar el exito o no
+let request=require("request-promise"); 
+
+
+let promesa=request("https://www.google.com")
+
+promesa.then(function(){console.log("Termine la peticion")})
+promesa.catch(function(err){console.log(err)})
+promesa.finally(function(err){console.log(err)})
 
 
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
