@@ -511,5 +511,34 @@ promesa.then(function(){console.log("Termine la peticion")})
 promesa.catch(function(err){console.log(err)})
 promesa.finally(function(err){console.log(err)})
 
+//----------------------------CREAR PROMESAS-------------------//
+let request=require("request")
+
+function leerPagina(url){
+   return new Promise(function(resolve,reject){
+      request(url,function(error,response){
+         if(error)return reject(error)
+         resolve(response)
+      })
+   })
+};
+
+let promesa=leerPagina("https://google.com")
+promesa.then(r=>console.log("Finalice en promesas")).catch(err=>console.log(err))
+
+
+//----------------------------RESOLVER MULTIPLES PROMESAS-------------------//
+
+let p1=new Promise((resolve,reject)=>setTimeout(resolve,500,"hola mundo"))
+let p2=new Promise((resolve,reject)=>setTimeout(resolve,600,"segundo hola mundo"))
+
+function finalizado(){
+   console.log("Todo listo")
+}
+
+Promise.all([p1,p2]).then(function(resultados){   //EL METODO ALL ME PERMITE CONCATENAR LAS PROMESAS
+   console.log(resultados)
+   finalizado()
+})
 
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
