@@ -585,4 +585,116 @@ async function showGitHub(){
 //await lo que hace es convertir los valores asincronos a sincronos
 
 
+//----------------------------MANEJAR ERRORES EN PROMESAS-------------------//
+
+(async function(){
+   try{
+      let promesa=await Promise.reject("error")
+   }catch(err){
+      console.log("err")
+   }
+})()
+
+
+//---------------------------------------MODULOS-------------------------------------------//
+//Archivo 1
+export cons name="Ignacio"
+//Archivo 2
+import {name} from "./archivo2"
+
+//----------------------------READ ONLY IMPORTS-------------------//
+//son modulos que no pueden modificarse su valor
+
+//---------------------------------------GENERADORES E ITERADORES-------------------------------------------//
+//ITERADOR
+let iterador={
+   currentValue:1,
+   next(){
+      let result={value:null,done:false}
+
+      if(this.currentValue > 0 && this.currentValue <= 5){
+         result={value:this.currentValue,done:false}
+         this.currentValue +=1
+      }else{
+         result={done:true}
+      }
+      return result
+   }
+}
+
+//GENERADOR
+function* counter(){
+   for(var i=i; i<=5; i++){      //mismo procedimiento que el iterador pero simplificado
+      yield i                    //yield es como un return
+   }
+}
+
+let generator=counter()
+
+console.log(generator.next())
+//----------------------------RETURN EN FUNCIONES GENERADORAS-------------------//
+ 
+function* retornador(){
+   return 3                //cuando uso return en un generador termino la ejecucion, no pasa nada mas despues
+}
+
+let g=retornador()
+//----------------------------DELEGAR GENERADORES-------------------//
+//El delegar generadores es practicamente meter un generador dentro de otro
+
+function* retornador(){
+   yield* counter()        //esto me va a imprimir los 5 numeros de counter y despues me va a devolver "regrese"
+   console.log("Regrese")
+}
+
+//----------------------------ITERABLES CON ITERADORES-------------------//
+
+let rango={
+   min:null,
+   max:null,
+   currentValue:null,
+   [Symbol.iterator](){
+      return this
+   },
+   next(){
+      if(this.currentValue==null)this.currentValue=this.min;
+      let result={};
+      if(this.currentValue >= this.min && this.currentValue <= this.max){
+         result={value:this.currentValue,done:false};
+         this.currentValue +=1
+      }else{
+         result={done:true}
+      }
+      return result;
+   }
+}
+
+rango.min=0
+rango.max=10
+
+for (n of rango){
+   console.log(n)
+}
+
+//----------------------------ITERABLES Y GENERADORES -------------------//
+
+let rango={
+   min:null,
+   max:null,
+   [Symbol.iterator](){
+      return this.generator
+   },
+   generator:function*(){
+      for (var i=this.min; i<=this.max; i++){
+         yield i;
+      }
+   }
+}
+
+rango.min=0
+rango.max=100
+
+for (n of rango){console.log(n)}
+
+
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************

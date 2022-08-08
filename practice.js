@@ -1,20 +1,23 @@
-//----------------------------PRACTICAS ASINCRONISMO-------------------//
-
-// let request=require("request"); //con esto importo con node
-
-
-// request("https://www.google.com", function(){ //ejecuta el request y despues que termina ejecuta la function
-//     console.log("termine la peticion")
-// })
-
-// console.log("Yo socedo despues") //lo imprime primero aunque este despues de la funcioin
-
-//Por mas que la funcion asincrona tarde, el lenguaje va a seguir ejecutando normalmente
-
-let request=require("request-promise"); 
+function* counter(){
+    for(var i=i; i<=5; i++){      //mismo procedimiento que el iterador pero simplificado
+       yield i                    //yield es como un return
+    }
+ }
+ 
+ let generator=counter()
 
 
-request("https://www.google.com").then(function(){console.log("Termine la peticion")})
-console.log("Yo socedo despues") 
+function* retornador(){
+    yield* counter()        //esto me va a imprimir los 5 numeros de counter y despues me va a devolver "regrese"
+    console.log("Regrese")
+ }
+ 
+ let g=retornador()
 
-
+ console.log(g.next())
+ console.log(g.next())
+ console.log(g.next())
+ console.log(g.next())
+ console.log(g.next())
+ console.log(g.next())
+ console.log(g.next())
