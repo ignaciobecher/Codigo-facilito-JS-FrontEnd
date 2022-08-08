@@ -539,6 +539,50 @@ function finalizado(){
 Promise.all([p1,p2]).then(function(resultados){   //EL METODO ALL ME PERMITE CONCATENAR LAS PROMESAS
    console.log(resultados)
    finalizado()
-})
+}).catch(err=>console.log(err))
+
+
+//----------------------------ENCADENAR PROMESAS-------------------//
+
+function primerPromesa() {return new Promise((resolve)=>setTimeout(resolve,500,"hola mundo"))}
+
+function segundaPromesa{return new Promise((resolve)=>setTimeout(resolve,600,"segundo hola mundo"))}
+
+primerPromesa().then(segundaPromesa).then(function(r){console.log(r)})  //cuando se ejecute la primer promesa, me va a ejecutar la segunda y en la segunda me muestra por consola el resutlado
+
+
+
+function finalizado(){
+   console.log("Todo listo")
+}
+
+
+//---------------------------------------FUNCIONES ASINCRONAS-------------------------------------------//
+//----------------------------ASYNC-------------------//
+
+async function calcular(){          // async me devuelve una promesa
+   return new Promise((resolve,reject)=>{
+      setTimeout(resolve,500,5)
+   })
+}
+
+//----------------------------AWAIT-------------------//
+//Await hace que la ejecucion del codigo de una promesa sea resulta primero, evitando el uso del then
+
+(async function)(){
+   let promesa=await new Promise((resolve,reject)=>{
+   setTimeout(resolve,500,5)})
+   console.log(promesa)
+}()
+
+//Fetch con promesa ejemplo:
+async function showGitHub(){
+   let response=await fetch("https://api.github.com/users/urieldhdz/repos")
+   let repos=await response.json()
+   console.log(repos)
+}
+
+//await lo que hace es convertir los valores asincronos a sincronos
+
 
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
