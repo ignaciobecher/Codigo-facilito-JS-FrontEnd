@@ -63,10 +63,37 @@ const itemsLi=document.getElementsByTagName("li")
 
 //-------------------OBTENER ELEMENTOS POR CSS----------------------/
 /*<li class="li-lista" id="li-lista1"></li>*/
-const element=document.querySelector("#li-lista 1")     //eligiendo por id
-const element=document.querySelector(".li-lista")     //eligiendo por clase
-const element=document.querySelector("li")     //eligiendo por etiqueta
+const element1=document.querySelector("#li-lista 1")     //eligiendo por id
+const element2=document.querySelector(".li-lista")     //eligiendo por clase
+const element3=document.querySelector("li")     //eligiendo por etiqueta
 
 
 //-------------------ELEMENTOS HIJOS----------------------/
+
+/*<ul class="Lista-mayor">
+        <li class="lista-menor"></li>
+        <li class="lista-menor"></li>
+        <li class="lista-menor"></li>
+        <li class="lista-menor"></li>
+        <li class="lista-menor"></li>
+    </ul>*/
+
+const ulList=document.querySelector("ul")
+
+ulList.children[2]//accedo al numero 2
+ulList.firstElementChild
+ulList.lastElementChild
+
+//-------------------ELEMENTOS HERMANOS----------------------/
+
+//Elemento padre
+element1.parentElement
+
+//Elemento hermano anterior y siguiente
+element1.nextElementSibling
+element1.previousElementSibling
+
+//-------------------NODOS----------------------/
+
+
 
