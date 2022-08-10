@@ -1,700 +1,708 @@
-//Funciones
+// //Funciones
 
-//Declaracion de funcion
-function cuadrado(number){
-    return number*number
-}
+// //Declaracion de funcion
+// function cuadrado(number){
+//     return number*number
+// }
 
-//Expresion de funcion
+// //Expresion de funcion
 
-let func=function(){}
+// let func=function(){}
 
-//----------------------------------SCOPE-----------------------------//
+// //----------------------------------SCOPE-----------------------------//
 
-//Scope Global
-//variables, funciones y objetos que pueden ser accedidas desde cualquier parte del codigo
+// //Scope Global
+// //variables, funciones y objetos que pueden ser accedidas desde cualquier parte del codigo
 
- var nombre="ignacio"
+//  var nombre="ignacio"
 
- function decirHola(){
-    console.log("Hola"+nombre)
- } 
+//  function decirHola(){
+//     console.log("Hola"+nombre)
+//  } 
 
- //Scope local o de funcion
- //Es lo que esta localmente en una funcion, solo existe cuando se ejecuta
- function decirHola(){
-    nombre="ignacio" //local
-    console.log("Hola"+nombre)
- } 
+//  //Scope local o de funcion
+//  //Es lo que esta localmente en una funcion, solo existe cuando se ejecuta
+//  function decirHola(){
+//     nombre="ignacio" //local
+//     console.log("Hola"+nombre)
+//  } 
 
- //----------------------------------Alcance de bloque-----------------------------//
-function hola(nombre){
-   if(nombre){
-      let saludo="Hola"+ nombre
-   }
-   console.log(saludo)
-}
+//  //----------------------------------Alcance de bloque-----------------------------//
+// function hola(nombre){
+//    if(nombre){
+//       let saludo="Hola"+ nombre
+//    }
+//    console.log(saludo)
+// }
 
-hola(ignacio)
-//let y const alojan la variable en el alcance de bloque solamente, var si serviria.
-//ES RECOMENDABLE USAR LET PORQUE EVITA BUGS
+// hola(ignacio)
+// //let y const alojan la variable en el alcance de bloque solamente, var si serviria.
+// //ES RECOMENDABLE USAR LET PORQUE EVITA BUGS
 
- //----------------------------------FUNCIONES PURAS-----------------------------//
-//Son aquellas que no producen efectos secundarios
-
-
-//----------------------------------FIRST CLASS OBJECTS-----------------------------//
- //Cuando un dato puede ser enviado, asignado o retornado a una variable se trata de un first class 
- //1. Debe ser posible retornarlo
- //2. Deber ser posible asignarlo a una variable
- //3. Debe ser posible enviarlo como argumento
-
- return 2
- let num=2
- hola(2)
-
-//----------------------------------HOISTING-----------------------------//
-//JS comprende si llamamos una funcion antes de declararla, la variable o funcion estaria al principio del scope
-// Solo funciona en la declaracion y no la asignacio
- console.log(x)
-
- var x//funciona
- var x=10//no funciona
-
- //----------------------------------ARRAYS Y SUS USOS-----------------------------//
-//------------------------------RECORRER ARRAYS-------------------//
-
-let arr=[1,2,3,4]
-
-for(let i=0; i<arr.length; i++){
-    console.log(arr[i])
-}
-
-//------------------------------FOR EACH ARRAYS-------------------//
-
-let lenguajes=["ruby","python","javascript","C++"]
-
-lenguajes.forEach(function(lenguaje){   //lo que hago es pasar una funcion anonima con una variable nombrada al azar, esto va a devolver el array
-    console.log(lenguaje)
-})
-
-//------------------------------MAP ARRAYS-------------------//
-//map itera individualmente en cada elemento del array. Map no altera el array original, sino que crea uno nuevo
-
-let numeros=[1,2,45,6]
-
-let cuadrados=numeros.map(function(numero){
-    return numero*numero
-})
-
-//------------------------------FILTER ARRAYS-------------------//
-//Filter lo que hace es devolvernos los valores true de un array
-let arrayNum=[2,4,6,8,10,15,7]
-
-let nuevoArray=arrayNum.filter(function(nume){
-   return nume%2 ===0
-})
-
-console.log(nuevoArray)
-
-//------------------------------REDUCE ARRAYS-------------------//
-//se usa cuando queremos reducir un array a un solo valor
-
-let arrayNumeros=[1,2,3,4,5];
-
-let suma=arrayNumeros.reduce(function(acc,numero){   //acc es el acumulador
-   return acc+numero
-},0)//inicializo en posicion 0
-
-//------------------------------BUSCAR EN ARRAYS-------------------//
-//INDEX OF
-//devuelve posicion
-let arreglo1=["ruby","php","Js"]
-arreglo1.indexOf("ruby")
-
-//INCLUDES
-//devuelve true o false
-let arreglo2=["ruby","php","Js"]
-arreglo2.includes("ruby")
-
-//FIND
-//para encontrar algo con una funcion de prueba
-arreglo2.find(function(elemento,posicion,arreglo){
-   return elemento==="ruby"
-})
-
-//Elemento: es el elemento que esta iterando
-//Posicion: en que posiucion va
-//Arreglo: arreglo completo
-
-//FINDINDEX
-//Encontrar el indice
-arreglo2.findIndex(function(elemento,posicion,arreglo){
-   return elemento==="ruby"
-})
-
-//------------------------------SPREAD AND REST-------------------//
-//Spread sintax. Separa los elementos de un array
-
-let arreglo3=[1,2,3]
-let nombres4="ignacio"
-
-console.log(...nombres4)
-
-//Rest parameters. Unen los elementos de un array
-
-function promedio(nombre,...calificaciones){
-   console.log(nombres4, calificaciones)
-}
-promedio("ignacio", 1,2,3,4,5)
-
-//------------------------------OBJETOS-------------------//
-//DECLARAR UN OBJETO JSON -> JavaScript object notation
-
-let curso={
-   titulo:"Curso Js",
-   Formato:"Video",
-   Duracion:"10 horas",
-   Bloques:["introduccion","Funciones"],
-   Inscribir: function(){
-      console.log("Listo")
-   },
-}
-
-//Acceder a un elemento
-console.log(curso.titulo) //----> "Curso JS"
-console.log(curso["titulo"]) //----> "Curso JS"
-console.log(curso.Inscribir()) //----> "Curso JS"
-
-//Agregar datos a un objeto
-curso.titulo="Curso de ruby"
-curso["titulo"]="Curso de ruby"
-
-//------------------------------SHORTHAND SYNTAX-------------------//
-
-let nombre="ignacio"
-let usuario={nombre}
-
-console.log(usuario.nombre) //---> nombre:"ignacio"
+//  //----------------------------------FUNCIONES PURAS-----------------------------//
+// //Son aquellas que no producen efectos secundarios
 
 
-//------------------------------COMBINAR O DUPLICAR OBJETOS-------------------//
+// //----------------------------------FIRST CLASS OBJECTS-----------------------------//
+//  //Cuando un dato puede ser enviado, asignado o retornado a una variable se trata de un first class 
+//  //1. Debe ser posible retornarlo
+//  //2. Deber ser posible asignarlo a una variable
+//  //3. Debe ser posible enviarlo como argumento
 
-//Duplicar objetos n
+//  return 2
+//  let num=2
+//  hola(2)
+
+// //----------------------------------HOISTING-----------------------------//
+// //JS comprende si llamamos una funcion antes de declararla, la variable o funcion estaria al principio del scope
+// // Solo funciona en la declaracion y no la asignacio
+//  console.log(x)
+
+//  var x//funciona
+//  var x=10//no funciona
+
+//  //----------------------------------ARRAYS Y SUS USOS-----------------------------//
+// //------------------------------RECORRER ARRAYS-------------------//
+
+// let arr=[1,2,3,4]
+
+// for(let i=0; i<arr.length; i++){
+//     console.log(arr[i])
+// }
+
+// //------------------------------FOR EACH ARRAYS-------------------//
+
+// let lenguajes=["ruby","python","javascript","C++"]
+
+// lenguajes.forEach(function(lenguaje){   //lo que hago es pasar una funcion anonima con una variable nombrada al azar, esto va a devolver el array
+//     console.log(lenguaje)
+// })
+
+// //------------------------------MAP ARRAYS-------------------//
+// //map itera individualmente en cada elemento del array. Map no altera el array original, sino que crea uno nuevo
+
+// let numeros=[1,2,45,6]
+
+// let cuadrados=numeros.map(function(numero){
+//     return numero*numero
+// })
+
+// //------------------------------FILTER ARRAYS-------------------//
+// //Filter lo que hace es devolvernos los valores true de un array
+// let arrayNum=[2,4,6,8,10,15,7]
+
+// let nuevoArray=arrayNum.filter(function(nume){
+//    return nume%2 ===0
+// })
+
+// console.log(nuevoArray)
+
+// //------------------------------REDUCE ARRAYS-------------------//
+// //se usa cuando queremos reducir un array a un solo valor
+
+// let arrayNumeros=[1,2,3,4,5];
+
+// let suma=arrayNumeros.reduce(function(acc,numero){   //acc es el acumulador
+//    return acc+numero
+// },0)//inicializo en posicion 0
+
+// //------------------------------BUSCAR EN ARRAYS-------------------//
+// //INDEX OF
+// //devuelve posicion
+// let arreglo1=["ruby","php","Js"]
+// arreglo1.indexOf("ruby")
+
+// //INCLUDES
+// //devuelve true o false
+// let arreglo2=["ruby","php","Js"]
+// arreglo2.includes("ruby")
+
+// //FIND
+// //para encontrar algo con una funcion de prueba
+// arreglo2.find(function(elemento,posicion,arreglo){
+//    return elemento==="ruby"
+// })
+
+// //Elemento: es el elemento que esta iterando
+// //Posicion: en que posiucion va
+// //Arreglo: arreglo completo
+
+// //FINDINDEX
+// //Encontrar el indice
+// arreglo2.findIndex(function(elemento,posicion,arreglo){
+//    return elemento==="ruby"
+// })
+
+// //------------------------------SPREAD AND REST-------------------//
+// //Spread sintax. Separa los elementos de un array
+
+// let arreglo3=[1,2,3]
+// let nombres4="ignacio"
+
+// console.log(...nombres4)
+
+// //Rest parameters. Unen los elementos de un array
+
+// function promedio(nombre,...calificaciones){
+//    console.log(nombres4, calificaciones)
+// }
+// promedio("ignacio", 1,2,3,4,5)
+
+// //------------------------------OBJETOS-------------------//
+// //DECLARAR UN OBJETO JSON -> JavaScript object notation
+
+// let curso={
+//    titulo:"Curso Js",
+//    Formato:"Video",
+//    Duracion:"10 horas",
+//    Bloques:["introduccion","Funciones"],
+//    Inscribir: function(){
+//       console.log("Listo")
+//    },
+// }
+
+// //Acceder a un elemento
+// console.log(curso.titulo) //----> "Curso JS"
+// console.log(curso["titulo"]) //----> "Curso JS"
+// console.log(curso.Inscribir()) //----> "Curso JS"
+
+// //Agregar datos a un objeto
+// curso.titulo="Curso de ruby"
+// curso["titulo"]="Curso de ruby"
+
+// //------------------------------SHORTHAND SYNTAX-------------------//
+
+// let nombre="ignacio"
+// let usuario={nombre}
+
+// console.log(usuario.nombre) //---> nombre:"ignacio"
+
+
+// //------------------------------COMBINAR O DUPLICAR OBJETOS-------------------//
+
+// //Duplicar objetos n
  
-let user={
-   Edad:"20",
-   nombre:"Ignacio"
-}
+// let user={
+//    Edad:"20",
+//    nombre:"Ignacio"
+// }
 
-let copiaAdmin={...user,Permisos:true}//----> copia el objeto y le agrega el elemento "Permisos"
+// let copiaAdmin={...user,Permisos:true}//----> copia el objeto y le agrega el elemento "Permisos"
 
-//Combinar objetos
-let user={
-   Edad:"20",
-   nombre:"Ignacio"
-}
+// //Combinar objetos
+// let user={
+//    Edad:"20",
+//    nombre:"Ignacio"
+// }
 
-let esquemaPermisos={nivel:2}
+// let esquemaPermisos={nivel:2}
 
-let admin={...user,...esquemaPermisos}//----->devuelve un objeto con los elementos de los combinados
+// let admin={...user,...esquemaPermisos}//----->devuelve un objeto con los elementos de los combinados
 
 
-//------------------------------DESTRUCTURING ASSIGNMENT-------------------//
+// //------------------------------DESTRUCTURING ASSIGNMENT-------------------//
 
-let user={
-   Edad:"20",
-   nombre:"Ignacio"
-}
+// let user={
+//    Edad:"20",
+//    nombre:"Ignacio"
+// }
 
-let {nombre}=user  // del lado izquierdo va la variable a extraer y del lado derecho el objeto del que la sacamos
-let {nombre:username}=user //creo una variable username con el valor de nombre
+// let {nombre}=user  // del lado izquierdo va la variable a extraer y del lado derecho el objeto del que la sacamos
+// let {nombre:username}=user //creo una variable username con el valor de nombre
 
-//Spread operator en object destructuring
-let {nombre,...sobrantes}=user//----> me va a devolver un objeto con los sobrantes menos name
+// //Spread operator en object destructuring
+// let {nombre,...sobrantes}=user//----> me va a devolver un objeto con los sobrantes menos name
 
-//Destructuring en array
+// //Destructuring en array
 
-let calificaciones=[10,9,9.5,8,8.5,7]
-let[matematicas,lengua,...otras]=calificaciones //-----> me devolveria [9.5,8,8.5,7]. 
+// let calificaciones=[10,9,9.5,8,8.5,7]
+// let[matematicas,lengua,...otras]=calificaciones //-----> me devolveria [9.5,8,8.5,7]. 
 
-//----------------------------FUNCIONES CONSTRUCTORAS-------------------//
-//Son funciones que nos permiten crear nuevos objetos
-function Course(){
-   this.tittle="Curso JS" //This nos permite modificar el objeto, es la forma en la que podemos accederlo
-}
+// //----------------------------FUNCIONES CONSTRUCTORAS-------------------//
+// //Son funciones que nos permiten crear nuevos objetos
+// function Course(){
+//    this.tittle="Curso JS" //This nos permite modificar el objeto, es la forma en la que podemos accederlo
+// }
 
-let objeto=new Course()
+// let objeto=new Course()
 
-let js=new Course()//Creo una copia del objeto en js
+// let js=new Course()//Creo una copia del objeto en js
 
-//----------------------------ARROW FUNCTIONS-------------------//
-let demo=() => console.log("Hola") //cuando es de una sola linea podemos omitir las llaves
+// //----------------------------ARROW FUNCTIONS-------------------//
+// let demo=() => console.log("Hola") //cuando es de una sola linea podemos omitir las llaves
 
-let hola(a,b) =>{
-   return (a+b)
-}
+// let hola(a,b) =>{
+//    return (a+b)
+// }
 
-//----------------------------ARROW FUNCTIONS Y CONTEXTO-------------------//
-//Heredan el valor de this del contexto en el que fueron creadas, no se reasigna
-function Estudiante(){
-   this.nombre="Ignacio"
-   this.saludar= () =>console.log("Hola"+this.nombre)  //la arrow function nos evita problemas con el this, el this en una arrow adopta el contexto en la creacion y no lo modifica en la ejecucion
-}     //al usar una funcion comun el this toma el contexto en la ejecucion y no en la creacion
+// //----------------------------ARROW FUNCTIONS Y CONTEXTO-------------------//
+// //Heredan el valor de this del contexto en el que fueron creadas, no se reasigna
+// function Estudiante(){
+//    this.nombre="Ignacio"
+//    this.saludar= () =>console.log("Hola"+this.nombre)  //la arrow function nos evita problemas con el this, el this en una arrow adopta el contexto en la creacion y no lo modifica en la ejecucion
+// }     //al usar una funcion comun el this toma el contexto en la ejecucion y no en la creacion
 
-let e =new Estudiante()
+// let e =new Estudiante()
 
-//----------------------------BIND, CALL Y APPLY-------------------//
-function Estudiante(){
-   this.nombre="Ignacio"
-   this.saludar=function(){console.log(this)}
-   this.saludar=this.saludar.bind(this )
-}
+// //----------------------------BIND, CALL Y APPLY-------------------//
+// function Estudiante(){
+//    this.nombre="Ignacio"
+//    this.saludar=function(){console.log(this)}
+//    this.saludar=this.saludar.bind(this )
+// }
 
-let e=new Estudiante  //----> si hago console.log me va a ejecutar el objeto estudiante entero
+// let e=new Estudiante  //----> si hago console.log me va a ejecutar el objeto estudiante entero
  
-//Metodos que ejecutan la funcion:
-//Inmediato: call y apply
-//Lazy: bind
+// //Metodos que ejecutan la funcion:
+// //Inmediato: call y apply
+// //Lazy: bind
 
-//CALL, APPLY Y BIND LO QUE ME PERMITEN ES DECIRLE EXPLICITAMENTE A JS QUIEN VA A SER EL THIS EN UNA FUNCION
+// //CALL, APPLY Y BIND LO QUE ME PERMITEN ES DECIRLE EXPLICITAMENTE A JS QUIEN VA A SER EL THIS EN UNA FUNCION
 
-//----------------------------DEFINIR CLASES-------------------//
-//Es una alternativa para declarar objetos
+// //----------------------------DEFINIR CLASES-------------------//
+// //Es una alternativa para declarar objetos
 
-class Curso{
-   constructor(titulo){
-      this.titulo=titulo
-   }
-   Inscribir(){
-      console.log("Inscrito")
-   }
-}
+// class Curso{
+//    constructor(titulo){
+//       this.titulo=titulo
+//    }
+//    Inscribir(){
+//       console.log("Inscrito")
+//    }
+// }
 
-let JavaScript=new Course("Curso de JS")
+// let JavaScript=new Course("Curso de JS")
 
-//----------------------------DEFINIR METODOS Y PROPIEDADES-------------------//
+// //----------------------------DEFINIR METODOS Y PROPIEDADES-------------------//
 
-class Curso{
-   tittle="Hola";
-   inscribir=(nombre) =>{           //podemos definir este metodo como arrow function o como funcion comun
-      this.nombre=nombre
-   }
-}
+// class Curso{
+//    tittle="Hola";
+//    inscribir=(nombre) =>{           //podemos definir este metodo como arrow function o como funcion comun
+//       this.nombre=nombre
+//    }
+// }
 
-let c=new Curso();
+// let c=new Curso();
 
-//----------------------------ALCANCE DE PROPIEDADES-------------------//
+// //----------------------------ALCANCE DE PROPIEDADES-------------------//
 
-class Curso{
-   #title="JavaScript" //metodo privado, mientras que sea llamado dentro de la clase funciona, por fuera no
-   constructor(){
-      this.#bienvenida()
-   }
-   #bienvenida(){
-      console.log("bienvenido al curso"+this.#title)
-   }
-}
+// class Curso{
+//    #title="JavaScript" //metodo privado, mientras que sea llamado dentro de la clase funciona, por fuera no
+//    constructor(){
+//       this.#bienvenida()
+//    }
+//    #bienvenida(){
+//       console.log("bienvenido al curso"+this.#title)
+//    }
+// }
 
-let javascript=new curso()
+// let javascript=new curso()
 
-//----------------------------METODO CONSTRUCTOR-------------------//
+// //----------------------------METODO CONSTRUCTOR-------------------//
  
-class Curso{
-   constructor(titulo,color="yellow"){
-      this.titulo=titulo
-      this.color=color
-      console.log(arguments)
-   }      //se ejecuta de manera automatica cuando instanciamos un nuevo objeto de una clase
-}
+// class Curso{
+//    constructor(titulo,color="yellow"){
+//       this.titulo=titulo
+//       this.color=color
+//       console.log(arguments)
+//    }      //se ejecuta de manera automatica cuando instanciamos un nuevo objeto de una clase
+// }
 
-new Curso("Curso profesional de JS") //aca se ejecutaria el constructor automaticamente
+// new Curso("Curso profesional de JS") //aca se ejecutaria el constructor automaticamente
 
-//se ejecuta de manera automatica al crear una nueva ionstancia de la funcion
+// //se ejecuta de manera automatica al crear una nueva ionstancia de la funcion
 
-//----------------------------HERENCIA DE CLASES-------------------//
+// //----------------------------HERENCIA DE CLASES-------------------//
 
-class Human{
-   especio="humano"
-}
+// class Human{
+//    especio="humano"
+// }
 
-class Admin extends Human{}//admin hereda de human. Admin hereda todo lo que tenga human menos lo que sea privado
+// class Admin extends Human{}//admin hereda de human. Admin hereda todo lo que tenga human menos lo que sea privado
 
-let admin=new Admin
+// let admin=new Admin
 
-//Si tengo un metodo igual al heredado pero quiero sumar otro metodo igual pero modificado, utilizamos el "super"
+// //Si tengo un metodo igual al heredado pero quiero sumar otro metodo igual pero modificado, utilizamos el "super"
 
-class User{
-   saludar(){console.log("hola usuario")}
-}
+// class User{
+//    saludar(){console.log("hola usuario")}
+// }
 
-class Admin extends User{
-   saludar(){
-      super.saludar()
-      console.log("hola soy admin")
-   }
-}
+// class Admin extends User{
+//    saludar(){
+//       super.saludar()
+//       console.log("hola soy admin")
+//    }
+// }
 
-let admin=new Admin()
+// let admin=new Admin()
 
-admin.saludar() //----> "hola usuario" "hola soy admin"
+// admin.saludar() //----> "hola usuario" "hola soy admin"
 
-//----------------------------METODOS ACCESORES-------------------//
+// //----------------------------METODOS ACCESORES-------------------//
 
-class User{
-   get nombre(){return "ignacio"} //GET se usa para obtener o leer el valor de una propeidad, ene ste caso "nombre"
-   set nombre(nombre){console.log(nombre)}//SET se usa para asignar un valor nuevo a alguna propiedad
-}
+// class User{
+//    get nombre(){return "ignacio"} //GET se usa para obtener o leer el valor de una propeidad, ene ste caso "nombre"
+//    set nombre(nombre){console.log(nombre)}//SET se usa para asignar un valor nuevo a alguna propiedad
+// }
 
-let user=new User()
-console.log(user.nombre)//no hace falta ponerle parentesis a nombre
+// let user=new User()
+// console.log(user.nombre)//no hace falta ponerle parentesis a nombre
 
 
-user.nombre="Becher"//es llamado cuando usamos el opereador de igualdad
+// user.nombre="Becher"//es llamado cuando usamos el opereador de igualdad
 
-user.nombre;//ASI LLAMAMOS A UN GETTER
-user.nombre="abcdefg"//ASI LLAMAMOS A UN SETTER
+// user.nombre;//ASI LLAMAMOS A UN GETTER
+// user.nombre="abcdefg"//ASI LLAMAMOS A UN SETTER
 
-//----------------------------METODOS Y PROPIEDADES ESTATICAS-------------------//
+// //----------------------------METODOS Y PROPIEDADES ESTATICAS-------------------//
 
-class Api{
-   static ENDPOINT="localhost:3000";
-   static get(){
-      console.log(this.ENDPOINT)
-   }
-}
+// class Api{
+//    static ENDPOINT="localhost:3000";
+//    static get(){
+//       console.log(this.ENDPOINT)
+//    }
+// }
 
-//el uso de static antes de un elemento me permite llamar al elemento de la clase sin tener que instanciar un nuevo objeeto
+// //el uso de static antes de un elemento me permite llamar al elemento de la clase sin tener que instanciar un nuevo objeeto
 
-Api.get() //----> imprime "localhost:3000"
+// Api.get() //----> imprime "localhost:3000"
 
 
-//---------------------------------------PROGRAMACION ORIENTADA A PROTOTIPOS-------------------------------------------//
+// //---------------------------------------PROGRAMACION ORIENTADA A PROTOTIPOS-------------------------------------------//
 
-function Course(){}
-   Course.prototype.inscribir=function(){
-      console.log("hola")
-   }
+// function Course(){}
+//    Course.prototype.inscribir=function(){
+//       console.log("hola")
+//    }
 
-let course=new Course();
-course.abandonar=function(){console.log("abandonar")}
+// let course=new Course();
+// course.abandonar=function(){console.log("abandonar")}
 
-//----------------------------CONCEPTOS DE PROTOTIPOS-------------------//
+// //----------------------------CONCEPTOS DE PROTOTIPOS-------------------//
 
-// Conceptos de prototipos
+// // Conceptos de prototipos
 
 
 
-// Tenemos la propiedad prototype, todas las funciones tienen esta propiedad y apunta al prototype object.
-// El prototype object es el objeto al que podemos asignar métodos y propiedades que queremos compartir en el prototype chain o cadena de prototipos.
-// Cuando creamos un objeto de una función usando new, se asigna una propiedad proto que apunta al prototype de la función con la que se creó el objeto, también conocida como función constructora. Esto quiere decir que podemos decir que proto apunta al prototype de la función constructora.
-// El prototype chain o la cadena de prototipos hace referencia al enlace que se crea entre prototipos que tienen su propio prototipo, que tienen su propio prototipo. Cuando buscamos un método o una propiedad en un objeto, se buscará inicialmente en el objeto y luego en la cadena de prototipos.
-// El último eslabón de la cadena de prototipos es Object.prototype, este objeto es usado para definir métodos que compartan todos los objetos del lenguaje, ya que eventualmente la cadena de prototipos termina aquí.
-// El prototipo de una función constructora apunta por defecto al prototype de Object, aunque esto puede ser modificado.
-// Un dato interesante es que cualquier objeto creado con la notación JSON enlaza su propiedad proto al prototype de la función constructora Object.
+// // Tenemos la propiedad prototype, todas las funciones tienen esta propiedad y apunta al prototype object.
+// // El prototype object es el objeto al que podemos asignar métodos y propiedades que queremos compartir en el prototype chain o cadena de prototipos.
+// // Cuando creamos un objeto de una función usando new, se asigna una propiedad proto que apunta al prototype de la función con la que se creó el objeto, también conocida como función constructora. Esto quiere decir que podemos decir que proto apunta al prototype de la función constructora.
+// // El prototype chain o la cadena de prototipos hace referencia al enlace que se crea entre prototipos que tienen su propio prototipo, que tienen su propio prototipo. Cuando buscamos un método o una propiedad en un objeto, se buscará inicialmente en el objeto y luego en la cadena de prototipos.
+// // El último eslabón de la cadena de prototipos es Object.prototype, este objeto es usado para definir métodos que compartan todos los objetos del lenguaje, ya que eventualmente la cadena de prototipos termina aquí.
+// // El prototipo de una función constructora apunta por defecto al prototype de Object, aunque esto puede ser modificado.
+// // Un dato interesante es que cualquier objeto creado con la notación JSON enlaza su propiedad proto al prototype de la función constructora Object.
 
-//----------------------------PROTOTIPOS EN LA PRACTICA-------------------//
+// //----------------------------PROTOTIPOS EN LA PRACTICA-------------------//
 
-//El objeto prototype de una funcion es un espacio para definir elementos que se compartiran entre todos los objetos creados a partir de la funcion
+// //El objeto prototype de una funcion es un espacio para definir elementos que se compartiran entre todos los objetos creados a partir de la funcion
 
-function Course(){}
+// function Course(){}
 
-Course.prototype.inscribir=function(){
-   console.log("ok")
-}
+// Course.prototype.inscribir=function(){
+//    console.log("ok")
+// }
 
-let JavaScript= new Course()
-let ruby= new Course()   //ambos imprimen ----> "ok" 
-//estas nuevas instancias heredan el protoype, los elementos heredados son compartidos, no copiados
+// let JavaScript= new Course()
+// let ruby= new Course()   //ambos imprimen ----> "ok" 
+// //estas nuevas instancias heredan el protoype, los elementos heredados son compartidos, no copiados
 
 
-//----------------------------HERENCIA DE PROTOTIPOS-------------------//
+// //----------------------------HERENCIA DE PROTOTIPOS-------------------//
 
-function Course(title){
-   this.title=title
-}
+// function Course(title){
+//    this.title=title
+// }
 
-Course.prototype.inscribir=function(){console.log("inscribir")}
+// Course.prototype.inscribir=function(){console.log("inscribir")}
 
-function LiveCourse(date){
-   this.published_at=date
-}
+// function LiveCourse(date){
+//    this.published_at=date
+// }
 
-LiveCourse.prototype=Object.create(Course.prototype) //crea un nuevo {__proto__:Course.prototype}
+// LiveCourse.prototype=Object.create(Course.prototype) //crea un nuevo {__proto__:Course.prototype}
 
-let JavaScript=new LiveCourse(new Date)
+// let JavaScript=new LiveCourse(new Date)
 
-//let JavaScript=new Course("Curso de JS")
-let ruby=Object.create(javascript)
+// //let JavaScript=new Course("Curso de JS")
+// let ruby=Object.create(javascript)
 
-ruby.title="curso de ruby"  //----> si hago un console.log me va a imprimir "curso de ruby ya que en esta instancia estoy creando una nueva propiedad title, no esta modificando el prototype. anteriormente no copíe el prototype"
+// ruby.title="curso de ruby"  //----> si hago un console.log me va a imprimir "curso de ruby ya que en esta instancia estoy creando una nueva propiedad title, no esta modificando el prototype. anteriormente no copíe el prototype"
 
-/*
-En JS la herencia de prototipos funciona al incluir el prototype de una clase en la cadena de prototipos de un objeto.
+// /*
+// En JS la herencia de prototipos funciona al incluir el prototype de una clase en la cadena de prototipos de un objeto.
 
-Un objeto puede heredar de otro si lo usamos como primer argumento de Object.create
+// Un objeto puede heredar de otro si lo usamos como primer argumento de Object.create
 
-Una funcion constructora puede heredar de otra si usamos el prototype de la clase base como primer argumento de Object.create y asignamos ese resultado al prototype de la clase hija.
-*/
+// Una funcion constructora puede heredar de otra si usamos el prototype de la clase base como primer argumento de Object.create y asignamos ese resultado al prototype de la clase hija.
+// */
 
 
-//---------------------------------------PROGRAMACION ASINCRONA-------------------------------------------//
+// //---------------------------------------PROGRAMACION ASINCRONA-------------------------------------------//
 
-//Que es la programacion asincrona
+// //Que es la programacion asincrona
 
-/*
-En un lenguaje de programación asíncrono como JavaScript, las tareas pueden ejecutarse secuencialmente, esto significa que podemos indicar que algunas tareas se pasen a segundo plano y esperen a su turno para ser reanudadas y ejecutadas.
+// /*
+// En un lenguaje de programación asíncrono como JavaScript, las tareas pueden ejecutarse secuencialmente, esto significa que podemos indicar que algunas tareas se pasen a segundo plano y esperen a su turno para ser reanudadas y ejecutadas.
 
-Esta característica del lenguaje existe para mejorar el rendimiento del mismo, porque nos permite aprovechar al máximo las capacidades del equipo en el que se está ejecutando nuestro código.
+// Esta característica del lenguaje existe para mejorar el rendimiento del mismo, porque nos permite aprovechar al máximo las capacidades del equipo en el que se está ejecutando nuestro código.
 
-Por lo general las tareas que se esperan sean más tardadas, o que necesiten esperar respuesta de algún otro elemento del sistema, son candidatas a ser delegadas a este proceso de espera y ejecución.
+// Por lo general las tareas que se esperan sean más tardadas, o que necesiten esperar respuesta de algún otro elemento del sistema, son candidatas a ser delegadas a este proceso de espera y ejecución.
 
-JavaScript es un lenguaje de ejecución sobre un solo hilo, esto significa que sólo puede ejecutar una tarea a la vez. Cuando una operación tarda demasiado o está esperando la respuesta de otra, decimos que bloquea las demás instrucciones, precisamente porque JavaScript no puede ejecutar dos a la vez.
+// JavaScript es un lenguaje de ejecución sobre un solo hilo, esto significa que sólo puede ejecutar una tarea a la vez. Cuando una operación tarda demasiado o está esperando la respuesta de otra, decimos que bloquea las demás instrucciones, precisamente porque JavaScript no puede ejecutar dos a la vez.
 
-Para solucionar esto, JavaScript introduce el event loop, o ciclo de eventos. El event loop se compone de dos componentes principales, una cola de mensajes y un ciclo que se encuentra iterando esta cola de mensajes. La programación asíncrona en JavaScript funciona empujando ciertas operaciones a esta cola de actividades, para que no bloqueen la ejecución de código mientras terminan, el trabajo del event loop es estar preguntando las operaciones de la cola de actividades si ya han finalizado, y cuando lo hacen, reanuda la ejecución de dicha operación, la recupera por así decirlo.
+// Para solucionar esto, JavaScript introduce el event loop, o ciclo de eventos. El event loop se compone de dos componentes principales, una cola de mensajes y un ciclo que se encuentra iterando esta cola de mensajes. La programación asíncrona en JavaScript funciona empujando ciertas operaciones a esta cola de actividades, para que no bloqueen la ejecución de código mientras terminan, el trabajo del event loop es estar preguntando las operaciones de la cola de actividades si ya han finalizado, y cuando lo hacen, reanuda la ejecución de dicha operación, la recupera por así decirlo.
 
-Para que todo esto funcione, necesitas una forma de delegar ciertas operaciones a esta cola, y una forma de saber cuándo estas operaciones han terminado, para hacerlo JavaScript introdujo inicialmente el concepto de callbacks, y después el de promesas, finalmente a la sintaxis se introdujeron las funciones asíncronas, todos estos conceptos están diseñados para que esta comunicación entre el event loop, la cola de actividades y tu código, suceda.
-*/
+// Para que todo esto funcione, necesitas una forma de delegar ciertas operaciones a esta cola, y una forma de saber cuándo estas operaciones han terminado, para hacerlo JavaScript introdujo inicialmente el concepto de callbacks, y después el de promesas, finalmente a la sintaxis se introdujeron las funciones asíncronas, todos estos conceptos están diseñados para que esta comunicación entre el event loop, la cola de actividades y tu código, suceda.
+// */
 
-//----------------------------CALLBACKS-------------------//
-//un callback es una funcion que se pasa como argumento a una operacion asincrona con objetivo de que se ejecute una vez terminada la operacion.
+// //----------------------------CALLBACKS-------------------//
+// //un callback es una funcion que se pasa como argumento a una operacion asincrona con objetivo de que se ejecute una vez terminada la operacion.
 
-//---------------------------- CALLBACKS-------------------//
-//hecho con npm install request
-let request=require("request"); //con esto importo con node
+// //---------------------------- CALLBACKS-------------------//
+// //hecho con npm install request
+// let request=require("request"); //con esto importo con node
 
 
-request("https://www.google.com", function(){ //ejecuta el request y despues que termina ejecuta la function
-    console.log("termine la peticion")
-})
+// request("https://www.google.com", function(){ //ejecuta el request y despues que termina ejecuta la function
+//     console.log("termine la peticion")
+// })
 
-console.log("Yo socedo despues") //lo imprime primero aunque este despues de la funcioin
+// console.log("Yo socedo despues") //lo imprime primero aunque este despues de la funcioin
 
-//Por mas que la funcion asincrona tarde, el lenguaje va a seguir ejecutando normalmente
+// //Por mas que la funcion asincrona tarde, el lenguaje va a seguir ejecutando normalmente
 
-//----------------------------PROMESAS-------------------//
-//hecho con npm install request-promise
+// //----------------------------PROMESAS-------------------//
+// //hecho con npm install request-promise
 
-let request=require("request-promise"); 
+// let request=require("request-promise"); 
 
 
-let promesa=request("https://www.google.com")
+// let promesa=request("https://www.google.com")
 
-promesa.then(function(){console.log("Termine la peticion")})
-promesa.catch(function(err){console.log(err)}) //catch me permite saber si paso algo en la operacion asincrona
+// promesa.then(function(){console.log("Termine la peticion")})
+// promesa.catch(function(err){console.log(err)}) //catch me permite saber si paso algo en la operacion asincrona
 
-console.log("Yo socedo despues") 
+// console.log("Yo socedo despues") 
 
 
-//ESTADOS DE LAS PROMESAS
-/*
-Fullfilled:completada con exito
-Rejected:rechazada sin exito
-Pending:Pendiente no ha terminado
-Settled:Finalizada con exito o con error
+// //ESTADOS DE LAS PROMESAS
+// /*
+// Fullfilled:completada con exito
+// Rejected:rechazada sin exito
+// Pending:Pendiente no ha terminado
+// Settled:Finalizada con exito o con error
 
-*/
+// */
 
 
-//----------------------------CALLBACKS DE LAS PROMESAS-------------------//
-//Metodos que se ejecutaran al finalizazr la promesa
+// //----------------------------CALLBACKS DE LAS PROMESAS-------------------//
+// //Metodos que se ejecutaran al finalizazr la promesa
 
-//THEN: completada con exito
-//CATCH: error
-//FINALLY: ejecuta codigo sin importar el exito o no
-let request=require("request-promise"); 
+// //THEN: completada con exito
+// //CATCH: error
+// //FINALLY: ejecuta codigo sin importar el exito o no
+// let request=require("request-promise"); 
 
 
-let promesa=request("https://www.google.com")
+// let promesa=request("https://www.google.com")
 
-promesa.then(function(){console.log("Termine la peticion")})
-promesa.catch(function(err){console.log(err)})
-promesa.finally(function(err){console.log(err)})
+// promesa.then(function(){console.log("Termine la peticion")})
+// promesa.catch(function(err){console.log(err)})
+// promesa.finally(function(err){console.log(err)})
 
-//----------------------------CREAR PROMESAS-------------------//
-let request=require("request")
+// //----------------------------CREAR PROMESAS-------------------//
+// let request=require("request")
 
-function leerPagina(url){
-   return new Promise(function(resolve,reject){
-      request(url,function(error,response){
-         if(error)return reject(error)
-         resolve(response)
-      })
-   })
-};
+// function leerPagina(url){
+//    return new Promise(function(resolve,reject){
+//       request(url,function(error,response){
+//          if(error)return reject(error)
+//          resolve(response)
+//       })
+//    })
+// };
 
-let promesa=leerPagina("https://google.com")
-promesa.then(r=>console.log("Finalice en promesas")).catch(err=>console.log(err))
+// let promesa=leerPagina("https://google.com")
+// promesa.then(r=>console.log("Finalice en promesas")).catch(err=>console.log(err))
 
 
-//----------------------------RESOLVER MULTIPLES PROMESAS-------------------//
+// //----------------------------RESOLVER MULTIPLES PROMESAS-------------------//
 
-let p1=new Promise((resolve,reject)=>setTimeout(resolve,500,"hola mundo"))
-let p2=new Promise((resolve,reject)=>setTimeout(resolve,600,"segundo hola mundo"))
+// let p1=new Promise((resolve,reject)=>setTimeout(resolve,500,"hola mundo"))
+// let p2=new Promise((resolve,reject)=>setTimeout(resolve,600,"segundo hola mundo"))
 
-function finalizado(){
-   console.log("Todo listo")
-}
+// function finalizado(){
+//    console.log("Todo listo")
+// }
 
-Promise.all([p1,p2]).then(function(resultados){   //EL METODO ALL ME PERMITE CONCATENAR LAS PROMESAS
-   console.log(resultados)
-   finalizado()
-}).catch(err=>console.log(err))
+// Promise.all([p1,p2]).then(function(resultados){   //EL METODO ALL ME PERMITE CONCATENAR LAS PROMESAS
+//    console.log(resultados)
+//    finalizado()
+// }).catch(err=>console.log(err))
 
 
-//----------------------------ENCADENAR PROMESAS-------------------//
+// //----------------------------ENCADENAR PROMESAS-------------------//
 
-function primerPromesa() {return new Promise((resolve)=>setTimeout(resolve,500,"hola mundo"))}
+// function primerPromesa() {return new Promise((resolve)=>setTimeout(resolve,500,"hola mundo"))}
 
-function segundaPromesa{return new Promise((resolve)=>setTimeout(resolve,600,"segundo hola mundo"))}
+// function segundaPromesa{return new Promise((resolve)=>setTimeout(resolve,600,"segundo hola mundo"))}
 
-primerPromesa().then(segundaPromesa).then(function(r){console.log(r)})  //cuando se ejecute la primer promesa, me va a ejecutar la segunda y en la segunda me muestra por consola el resutlado
+// primerPromesa().then(segundaPromesa).then(function(r){console.log(r)})  //cuando se ejecute la primer promesa, me va a ejecutar la segunda y en la segunda me muestra por consola el resutlado
 
 
 
-function finalizado(){
-   console.log("Todo listo")
-}
+// function finalizado(){
+//    console.log("Todo listo")
+// }
 
 
-//---------------------------------------FUNCIONES ASINCRONAS-------------------------------------------//
-//----------------------------ASYNC-------------------//
+// //---------------------------------------FUNCIONES ASINCRONAS-------------------------------------------//
+// //----------------------------ASYNC-------------------//
 
-async function calcular(){          // async me devuelve una promesa
-   return new Promise((resolve,reject)=>{
-      setTimeout(resolve,500,5)
-   })
-}
+// async function calcular(){          // async me devuelve una promesa
+//    return new Promise((resolve,reject)=>{
+//       setTimeout(resolve,500,5)
+//    })
+// }
 
-//----------------------------AWAIT-------------------//
-//Await hace que la ejecucion del codigo de una promesa sea resulta primero, evitando el uso del then
+// //----------------------------AWAIT-------------------//
+// //Await hace que la ejecucion del codigo de una promesa sea resulta primero, evitando el uso del then
 
-(async function)(){
-   let promesa=await new Promise((resolve,reject)=>{
-   setTimeout(resolve,500,5)})
-   console.log(promesa)
-}()
+// (async function)(){
+//    let promesa=await new Promise((resolve,reject)=>{
+//    setTimeout(resolve,500,5)})
+//    console.log(promesa)
+// }()
 
-//Fetch con promesa ejemplo:
-async function showGitHub(){
-   let response=await fetch("https://api.github.com/users/urieldhdz/repos")
-   let repos=await response.json()
-   console.log(repos)
-}
+// //Fetch con promesa ejemplo:
+// async function showGitHub(){
+//    let response=await fetch("https://api.github.com/users/urieldhdz/repos")
+//    let repos=await response.json()
+//    console.log(repos)
+// }
 
-//await lo que hace es convertir los valores asincronos a sincronos
+// //await lo que hace es convertir los valores asincronos a sincronos
 
 
-//----------------------------MANEJAR ERRORES EN PROMESAS-------------------//
+// //----------------------------MANEJAR ERRORES EN PROMESAS-------------------//
 
-(async function(){
-   try{
-      let promesa=await Promise.reject("error")
-   }catch(err){
-      console.log("err")
-   }
-})()
+// (async function(){
+//    try{
+//       let promesa=await Promise.reject("error")
+//    }catch(err){
+//       console.log("err")
+//    }
+// })()
 
 
-//---------------------------------------MODULOS-------------------------------------------//
-//Archivo 1
-export cons name="Ignacio"
-//Archivo 2
-import {name} from "./archivo2"
+// //---------------------------------------MODULOS-------------------------------------------//
+// //Archivo 1
+// export cons name="Ignacio"
+// //Archivo 2
+// import {name} from "./archivo2"
 
-//----------------------------READ ONLY IMPORTS-------------------//
-//son modulos que no pueden modificarse su valor
+// //----------------------------READ ONLY IMPORTS-------------------//
+// //son modulos que no pueden modificarse su valor
 
-//---------------------------------------GENERADORES E ITERADORES-------------------------------------------//
-//ITERADOR
-let iterador={
-   currentValue:1,
-   next(){
-      let result={value:null,done:false}
+// //---------------------------------------GENERADORES E ITERADORES-------------------------------------------//
+// //ITERADOR
+// let iterador={
+//    currentValue:1,
+//    next(){
+//       let result={value:null,done:false}
 
-      if(this.currentValue > 0 && this.currentValue <= 5){
-         result={value:this.currentValue,done:false}
-         this.currentValue +=1
-      }else{
-         result={done:true}
-      }
-      return result
-   }
-}
+//       if(this.currentValue > 0 && this.currentValue <= 5){
+//          result={value:this.currentValue,done:false}
+//          this.currentValue +=1
+//       }else{
+//          result={done:true}
+//       }
+//       return result
+//    }
+// }
 
-//GENERADOR
-function* counter(){
-   for(var i=i; i<=5; i++){      //mismo procedimiento que el iterador pero simplificado
-      yield i                    //yield es como un return
-   }
-}
+// //GENERADOR
+// function* counter(){
+//    for(var i=i; i<=5; i++){      //mismo procedimiento que el iterador pero simplificado
+//       yield i                    //yield es como un return
+//    }
+// }
 
-let generator=counter()
+// let generator=counter()
 
-console.log(generator.next())
-//----------------------------RETURN EN FUNCIONES GENERADORAS-------------------//
+// console.log(generator.next())
+// //----------------------------RETURN EN FUNCIONES GENERADORAS-------------------//
  
-function* retornador(){
-   return 3                //cuando uso return en un generador termino la ejecucion, no pasa nada mas despues
-}
+// function* retornador(){
+//    return 3                //cuando uso return en un generador termino la ejecucion, no pasa nada mas despues
+// }
 
-let g=retornador()
-//----------------------------DELEGAR GENERADORES-------------------//
-//El delegar generadores es practicamente meter un generador dentro de otro
+// let g=retornador()
+// //----------------------------DELEGAR GENERADORES-------------------//
+// //El delegar generadores es practicamente meter un generador dentro de otro
 
-function* retornador(){
-   yield* counter()        //esto me va a imprimir los 5 numeros de counter y despues me va a devolver "regrese"
-   console.log("Regrese")
-}
+// function* retornador(){
+//    yield* counter()        //esto me va a imprimir los 5 numeros de counter y despues me va a devolver "regrese"
+//    console.log("Regrese")
+// }
 
-//----------------------------ITERABLES CON ITERADORES-------------------//
+// //----------------------------ITERABLES CON ITERADORES-------------------//
 
-let rango={
-   min:null,
-   max:null,
-   currentValue:null,
-   [Symbol.iterator](){
-      return this
-   },
-   next(){
-      if(this.currentValue==null)this.currentValue=this.min;
-      let result={};
-      if(this.currentValue >= this.min && this.currentValue <= this.max){
-         result={value:this.currentValue,done:false};
-         this.currentValue +=1
-      }else{
-         result={done:true}
-      }
-      return result;
-   }
-}
+// let rango={
+//    min:null,
+//    max:null,
+//    currentValue:null,
+//    [Symbol.iterator](){
+//       return this
+//    },
+//    next(){
+//       if(this.currentValue==null)this.currentValue=this.min;
+//       let result={};
+//       if(this.currentValue >= this.min && this.currentValue <= this.max){
+//          result={value:this.currentValue,done:false};
+//          this.currentValue +=1
+//       }else{
+//          result={done:true}
+//       }
+//       return result;
+//    }
+// }
 
-rango.min=0
-rango.max=10
+// rango.min=0
+// rango.max=10
 
-for (n of rango){
-   console.log(n)
-}
+// for (n of rango){
+//    console.log(n)
+// }
 
-//----------------------------ITERABLES Y GENERADORES -------------------//
+// //----------------------------ITERABLES Y GENERADORES -------------------//
 
-let rango={
-   min:null,
-   max:null,
-   [Symbol.iterator](){
-      return this.generator
-   },
-   generator:function*(){
-      for (var i=this.min; i<=this.max; i++){
-         yield i;
-      }
-   }
-}
+// let rango={
+//    min:null,
+//    max:null,
+//    [Symbol.iterator](){
+//       return this.generator
+//    },
+//    generator:function*(){
+//       for (var i=this.min; i<=this.max; i++){
+//          yield i;
+//       }
+//    }
+// }
 
-rango.min=0
-rango.max=100
+// rango.min=0
+// rango.max=100
 
-for (n of rango){console.log(n)}
+// for (n of rango){console.log(n)}
+
+
+//---------------------------------------ARRAYS-------------------------------------------//
+
+
+
+
+
 
 
 //HACER UN PUSH AL FINALIZAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*******************
