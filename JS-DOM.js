@@ -93,7 +93,61 @@ element1.parentElement
 element1.nextElementSibling
 element1.previousElementSibling
 
-//-------------------NODOS----------------------/
 
+//---------------------------------------MODIFICAR EL DOM-------------------------------------------//
+
+//-------------------CREAR ELEMENTOS----------------------/
+
+const row=document.querySelector(".row") //elemento vacio a donde va a ir la data
+
+function create_card_by_innerHTML(title,description){
+    let html= ` <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h3 class="tittle_card">${title}</h3>
+            <p class="description_card">${description}</p>
+            <p><a href="" class="btn btn-danger"></a></p>
+        </div>
+    </div>
+  </div>`
+  row.innerHTML +=html
+}
+
+
+//-------------------AGREGAR ELEMENTOS----------------------/
+
+function create_card(title,description){
+    let div=document.createElement("div")           //create element crearia un div
+    div.className="col-sm-6 col-md-4"               //hago referencia al div col-sm-6 col-md-4
+
+    let thumbnail=document.createElement("div")
+    thumbnail.className="thumbnail"
+
+    let caption=document.createElement("div")
+    caption.className="thumbnail"
+
+    let h3=document.createElement("h3")
+    h3.textContent=title                            //como no tienen id y dentro de este va texto, uso textContent  
+
+    let p1=document.createElement("p")
+    p1.textContent=description                      //como no tienen id y dentro de este va texto, uso textContent  
+    
+    let p2=document.createElement("p")
+   
+    let a=document.createElement("a")
+    a.className="btn btn-danger"
+    
+    //Agregar los elementos a los elemtnos padres
+    p2.appendChild(a)
+    caption.appendChild(h3)
+    caption.appendChild(p1)
+    caption.appendChild(p2)
+    
+    thumbnail.appendChild(caption)
+    div.appendChild(thumbnail)
+
+    row.appendChild(div)
+
+}
 
 
