@@ -151,3 +151,14 @@ function create_card(title,description){
 }
 
 
+//---------------------------------------EVENTOS -------------------------------------------//
+
+//-------------------EVENTO DE CLICK----------------------/
+
+const button=document.querySelector(".btn-button")      //le asigno una constante al boton
+
+button.addEventListener("click",function(){             //paso un event listener. Primero va que evento usar(click) y segundo va la funcion
+    console.log("hola soy un evento de click")
+})
+
+//SI QUIERO USAR DOBLE CLICK USO "DBLCLICK"

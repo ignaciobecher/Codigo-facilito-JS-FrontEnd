@@ -1,2 +1,5 @@
-let saludo="Hola mundo desde archivo"
-console.log(saludo)
+const boton=document.querySelector(".btn-man")
+
+boton.addEventListener("click",function(){
+    console.log("button")
+})
