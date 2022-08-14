@@ -153,7 +153,7 @@ function create_card(title,description){
 
 //---------------------------------------EVENTOS -------------------------------------------//
 
-//-------------------EVENTO DE CLICK----------------------/
+//-------------------EVENTO CLICK----------------------/
 
 const button=document.querySelector(".btn-button")      //le asigno una constante al boton
 
@@ -162,3 +162,61 @@ button.addEventListener("click",function(){             //paso un event listener
 })
 
 //SI QUIERO USAR DOBLE CLICK USO "DBLCLICK"
+
+//-------------------EVENTO TARGET----------------------/
+
+const boton=document.getElementById("btn-button")      //le asigno una constante al boton
+
+button.addEventListener("click",function(){             //paso un event listener. Primero va que evento usar(click) y segundo va la funcion
+    if(title.style.display!="none"){
+        title.style.display="none"
+        description.style.display="none"
+        e.target.textContent="Mostrar"              //la e se usa como un parametro comun para los eventos, la e es lo mismo que decir button o lo que sea que estemos usando, apunta al elemento que modificamos.Usando e.target accedemos al elemento manipulable
+    }else{
+        title.style.display="block"
+        description.style.display="block"
+        e.target.textContent="Ocultar"
+    }
+})
+
+
+//-------------------EVENTOS DEL MOUSE----------------------/
+//Mouse enter
+button.addEventListener("mouseenter",function(){
+    this.className="btn btn-danger" //accedo a una clase que me pone el boton en rojo
+})
+
+//Mouse out
+button.addEventListener("mouseout",function(e){
+    e.target.className("btn btn-primary")  //vuelvo a la clase principal
+})
+
+//-------------------SET TIME OUT----------------------/
+
+setTimeout(function(){      //Declaro una funcion setTimeout
+    console.log("Hola setTime")     //pongo lo que quiero que realice
+},3000)                               //pongo el tiempo a esperar
+
+//-------------------EVENTOS DEL TECLADO----------------------/
+
+const input=document.getElementById("input")
+
+input.addEventListener("keydown",function(e){
+    console.log("Tecla presionada")
+})
+
+//-------------------EVENTO SUBMIT----------------------/
+
+/*<form id="course-form">
+    <div class="form-group">
+    <input type="text" class="form-control" id="title-form" placeholder="Titulo">
+    </div>
+</form>*/
+
+const form=document.getElementById("course-form")   //agarro el form, el evento submit siempre va aplicado al formulario, nunca al input
+
+form.addEventListener("submit",function(e){
+    e.preventDefault()                      //prevengo la recarga por default
+    let title=document.getElementById("title-form").value;      //vault guarda el valor que ingrese en el input
+    console.log(title)
+})

@@ -1,5 +1,5 @@
-const boton=document.querySelector(".btn-man")
+const boton=document.getElementById("btn-man")
 
 boton.addEventListener("click",function(){
-    console.log("button")
+    console.log("hola soy evento")
 })
