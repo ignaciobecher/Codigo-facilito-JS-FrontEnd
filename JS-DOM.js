@@ -220,3 +220,25 @@ form.addEventListener("submit",function(e){
     let title=document.getElementById("title-form").value;      //vault guarda el valor que ingrese en el input
     console.log(title)
 })
+
+//-------------------DOCUMENT LOADED----------------------/
+
+document.addEventListener("DOMContentLoaded",function(){
+    console.log("El DOM ya fue construido")
+})
+
+//Se usa para saber cuando el dom y el html ya fueron construidos
+
+//-------------------EVENT BUBBLING----------------------/
+
+//Los eventos se propagan a sus padres
+
+//-------------------DETENER PROPAGACION----------------------/
+ element1.addEventListener("click",function(e){
+    e.stopPropagation()
+ })
+
+
+//---------------------------------------MODIFICAR EL DOM-------------------------------------------//
+
+
