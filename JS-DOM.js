@@ -239,6 +239,6 @@ document.addEventListener("DOMContentLoaded",function(){
  })
 
 
-//---------------------------------------MODIFICAR EL DOM-------------------------------------------//
+
 
 
