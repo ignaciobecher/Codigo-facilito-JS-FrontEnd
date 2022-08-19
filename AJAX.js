@@ -117,7 +117,16 @@ fetch("https://jsonplaceholder.typicode.com/posts?userId=1",{
 
 //------------------------------------------------POLITICAS CORS-------------------------------------------------------//
 
-
+//Cross-Origin Resource Sharing (CORS)
+//Sirve para anunciar a una aplicacion de un origen distinto, usando HTTP headers de los recursos a los que tiene acceso.
+ 
+/*Origen distinto:
+*Dominios distintos
+*Subdominio distinto
+*Puerto distinto
+*Protocolo distinto
+*/
+ 
 
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!HACER UN PUSH AL FINALIZAR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
